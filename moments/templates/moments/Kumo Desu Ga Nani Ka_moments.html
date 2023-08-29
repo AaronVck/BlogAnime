@@ -1,0 +1,27 @@
+{% extends '../panel.html' %}
+
+{% block content %}
+
+
+    {% for moment in card %}
+    
+    <main class="container mb-5 text-center center-screen container-fluid d-flex justify-content-center align-items-center vh-100">
+    
+    <div class="card" style="width: 60rem;">
+        <div class="card-body">
+            
+            <h2 class="card-title" style="color: rgb(255, 255, 255);">Título: {{moment.title}}</h2>
+    
+          </div>
+        <img class="card-img-top pr-3 pl-3" src="../media/{{moment.image}}" alt="Imagen acerca del capítulo">
+        <div class="card-body">
+          <h3 class="card-title" style="color: rgb(116, 111, 111);">Sinopsis: {{moment.sinopsis}}</h3>
+          <h3 class="card-text" style="color: rgb(185, 176, 176);">Review: {{moment.review}}</h3>
+          <a href="..{% url 'card_detail' moment.id %}" class="btn btn-primary">Editar</a>
+        </div>
+      </div>
+    </main>
+
+{% endfor %}
+
+{% endblock %}

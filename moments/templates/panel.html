@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        body {
+          background-color: #000000; /* Cambia este valor al color que desees */
+          
+        }
+        .card{
+            background-color: #1232b0;
+        }
+        .custom-box {
+                  border: 2px solid #ccc;
+                  overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+                  max-height: 80vh; /* Altura máxima del 80% de la altura de la ventana */
+              }
+              .custom-box ul {
+                  display: inline-block; /* Mostrar elementos UL en línea */
+                  margin-right: 10px; /* Espacio entre elementos UL */
+              }
+              ul li {
+                  list-style-type: none; /* Elimina los marcadores de lista */
+                  margin: 0; /* Elimina el margen */
+                  padding: 0; /* Elimina el relleno */
+                  color: white;
+                  transition: 0.3s;
+              }
+              ul li:hover {
+                  color: rgb(255, 0, 255); /* Cambia el color del texto al pasar el mouse */
+              }
+              .header{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+              }
+      </style>
+      
+    <title>Escenas</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark header">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/moments/">Ver momentos</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/moments/create">Crear momento</a>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <main class="container mb-5 text-center center-screen container-fluid d-flex justify-content-center align-items-center vh-100" style="color: white;">
+        <h1>Momentos De {{serie}}</h1>
+
+        </main>
+
+          <div class="container pb-3">
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <!-- Recuadro que abarca casi todo el ancho de la pantalla -->
+                    <div class="custom-box p-3" style="color: aquamarine; background-color: rgb(59, 28, 87);">
+                        <!-- Contenido de la caja -->
+                        <ul>
+                            <a href="/rezero/"><li>Re:Zero</li></a>
+                            <a href="/yofukashi/"><li>Yofukashi No  Uta</li></a>
+                            <a href="/shingeki/"><li>Shingeki No Kyojin</li></a>
+                            <!-- Agrega más elementos <li> según sea necesario -->
+                        </ul>
+                        <ul>
+                          <a href="/bocchi/"><li>Bocchi The Rock!</li></a>
+                          <a href="/boku/"><li>Boku No Hero</li></a>
+                          <a href="/fullmetal/"><li>Full Metal Alchemist</li></a>
+                          <!-- Agrega más elementos <li> según sea necesario -->
+                      </ul>
+                      <ul>
+                        <a href="/jujutsu/"><li>Jujutsu Kaisen</li></a>
+                        <a href="/kaguya/"><li>Kaguya-sama</li></a>
+                        <a href="/kimetsu/"><li>Kimetsu No Yaiba</li></a>
+                        <!-- Agrega más elementos <li> según sea necesario -->
+                    </ul>
+                    <ul>
+                      <a href="/kumo/"><li>Kumo Desu Ga Nani Ka?</li></a>
+                      <a href="/oshi/"><li>Oshi No Ko</li></a>
+                      <a href="/pokemon/"><li>Pokemon</li></a>
+                      <!-- Agrega más elementos <li> según sea necesario -->
+                  </ul>
+                  
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="container text-center" id="">
+            <ul class="list-unstyled">
+  
+          
+              {% if cardnovela and cardmanga and cardanime %}
+              <li class="d-inline pr-3">
+                <a class="h4 text-primary" href="?section=manga">Manga</a></li>
+                <li class="d-inline pr-3">
+                  <a class="h4 text-primary" href="?section=novela">Novela</a></li>
+                  <li class="d-inline pr-3">
+                    <a class="h4 text-primary" href="?section=anime">Anime</a></li>
+                    <li class="d-inline">
+                      <a class="h4 text-primary" href="/{{nombre}}/">General</a></li>
+              
+          {% elif cardanime and cardnovela %}
+          <li class="d-inline pr-3">
+            <a class="h4 text-primary" href="?section=anime">Anime</a></li>
+            <li class="d-inline pr-3">
+              <a class="h4 text-primary" href="?section=novela">Novela</a></li>
+              <li class="d-inline">
+                <a class="h4 text-primary" href="/{{nombre}}/">General</a></li>
+
+          {% elif cardmanga and cardanime %}
+          <li class="d-inline pr-3">
+            <a class="h4 text-primary" href="?section=manga">Manga</a></li>
+            <li class="d-inline pr-3">
+              <a class="h4 text-primary" href="?section=anime">Anime</a></li>
+              <li class="d-inline">
+                <a class="h4 text-primary" href="/{{nombre}}/">General</a></li>
+          {% endif %}
+      </ul>
+      </div>
+      {% block content %}
+
+
+      {% endblock %}
+    
+</body>
+</html>
+
+
