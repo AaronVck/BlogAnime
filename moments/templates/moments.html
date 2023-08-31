@@ -2,15 +2,30 @@
 
 {% block content %}
 
+<main class="container mb-5 text-center center-screen container-fluid d-flex justify-content-center align-items-center vh-100" style="color: white;">
 <h1>Momentos</h1>
+</main>
 
 {% for moment in card %}
 
-<h3>Titulo: {{moment.title}}</h3>
-<h3>Sinopsis: {{moment.sinopsis}}</h3>
-<h3>Imagen {{moment.image}}</h4>
-<img src="../media/{{moment.image}}" alt="ñada">
-<h3>Review: {{moment.review}}</h3>
+<main class="container mb-5 text-center center-screen container-fluid d-flex justify-content-center align-items-center vh-100">
+
+<div class="card" style="width: 60rem;">
+    <div class="card-body">
+
+        <h2 class="card-title">Título: {{moment.title}}</h2>
+
+      </div>
+    <img class="card-img-top pr-3 pl-3" src="../media/{{moment.image}}" alt="Imagen acerca del capítulo">
+    <div class="card-body">
+      <h3 class="card-title">Sinopsis: {{moment.sinopsis}}</h3>
+      <h3 class="card-text">Review: {{moment.review}}</h3>
+      <a href="#" class="btn btn-primary">Editar</a>
+    </div>
+  </div>
+</main>
+
+
 
 {% endfor %}
 
