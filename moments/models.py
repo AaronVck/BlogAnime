@@ -14,6 +14,7 @@ CHOICES = (
     ('kaguya','Kaguya-sama'),
     ('fullmetal','Full Metal Alchemist'),
     ('pokemon','Pokemon'),
+    ('jujutsu','Jujutsu Kaisen'),
 
 
 )

@@ -50,6 +50,9 @@ def fullmetal_moments(request):
 def pokemon_moments(request):
     return moments_by_serie(request, 'pokemon')
 
+def jujutsu_moments(request):
+    return moments_by_serie(request, 'jujutsu')
+
 
 
 def create_moment(request):

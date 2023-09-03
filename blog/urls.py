@@ -36,6 +36,7 @@ urlpatterns = [
     path('kaguya/', views.kaguya_moments, name="kaguya_moment"),
     path('fullmetal/', views.fullmetal_moments, name="fullmetal_moment"),
     path('pokemon/', views.pokemon_moments, name="pokemon_moment"),
+    path('jujutsu/', views.jujutsu_moments, name="jujutsu_moment"),
 
 ]
 
