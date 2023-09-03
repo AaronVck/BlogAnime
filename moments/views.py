@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CardForm
 from .models import Card
 
@@ -11,6 +11,12 @@ def moments(request):
         'card':card
     })
 
+
+def delete_card(request, card_id):
+    card = get_object_or_404(Card,pk=card_id)
+    if request.method == 'POST':
+        card.delete()
+        return redirect('moments')
 
 def moments_by_serie(request, serie):
     card = Card.objects.filter(serie=serie)
@@ -75,5 +81,22 @@ def create_moment(request):
                 'error': 'Ingresa correctamente los datos',
                 'form': form
             })
+
+
+
+def card_detail(request, card_id):
+    if request.method == 'GET':
+        card = get_object_or_404(Card,pk=card_id)
+        form = CardForm(instance=card)
+        return render(request, 'card_detail.html',{'card':card, 'form':form})
+    else:
+        try:
+            card = get_object_or_404(Card,pk=card_id)
+            form = CardForm(request.POST, request.FILES, instance=card )
+            form.save()
+            return redirect ('moments')
+        except ValueError:
+            return render(request, 'card_detail.html',{'card':card, 'form':form,'error':'Error Modificando momento'})
+
 
 # Create your views here.
