@@ -1,8 +1,11 @@
-{% extends '../panel.html' %}
+{% extends '../header.html' %}
 
 {% block content %}
 
-
+<main class="container mb-5 text-center center-screen container-fluid d-flex justify-content-center align-items-center vh-100" style="color: white;">
+    <h1>Momentos De Pokemon</h1>
+    </main>
+    
     {% for moment in card %}
     
     <main class="container mb-5 text-center center-screen container-fluid d-flex justify-content-center align-items-center vh-100">
@@ -17,7 +20,7 @@
         <div class="card-body">
           <h3 class="card-title" style="color: rgb(116, 111, 111);">Sinopsis: {{moment.sinopsis}}</h3>
           <h3 class="card-text" style="color: rgb(185, 176, 176);">Review: {{moment.review}}</h3>
-          <a href="..{% url 'card_detail' moment.id %}" class="btn btn-primary">Editar</a>
+          <a href="#" class="btn btn-primary">Editar</a>
         </div>
       </div>
     </main>
