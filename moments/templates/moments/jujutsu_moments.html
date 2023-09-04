@@ -59,7 +59,7 @@
         <div class="card-body">
           <h3 class="card-title" style="color: rgb(116, 111, 111);">Sinopsis: {{moment.sinopsis}}</h3>
           <h3 class="card-text" style="color: rgb(185, 176, 176);">Review: {{moment.review}}</h3>
-          <a href="#" class="btn btn-primary">Editar</a>
+          <a href="..{% url 'card_detail' moment.id %}" class="btn btn-primary">Editar</a>
         </div>
       </div>
     </main>
