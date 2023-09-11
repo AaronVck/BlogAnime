@@ -19,6 +19,12 @@ CHOICES = (
 
 )
 
+format = (
+    ('Novela','Novela'),
+            ('Anime','Anime'),
+            ('Manga','Manga'),
+) 
+
 class Card(models.Model):
     title = models.CharField(max_length=100)
     sinopsis = models.TextField(blank=True)
@@ -29,6 +35,8 @@ class Card(models.Model):
         choices=CHOICES,
         default='rezero',
     )
+    formato = models.CharField(max_length=40,choices=format, default='Anime')
+   
 
 
     def __str__(self):

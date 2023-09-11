@@ -3,20 +3,32 @@
 
 
 {% block content %}
+<style>
+    #id_formato{
+        padding-left: 2.7rem;
+        margin-bottom: 2rem;
+    
+    }
+
+    #botonact{
+        margin-top: 7.5rem;
+    }
+
+</style>
     <main class="container">
         <div class="row">
             <div class="col-md-5 offset-md-4 pt-2">
                 {{error}}
     <h1 style="color: white;">Editar: {{card.title}}</h1>
     
-    <div class="form-group rounded" style="background-color: #6c2e55; color: white;">
+    <div class="form-group mb-3 rounded" style="background-color: #6c2e55; color: white;">
 
         <img class="card-img-top pr-3 pl-3 pt-3" style="width: 27rem;" src="../media/{{card.image}}" alt="Imagen acerca del capítulo">
     
     <form method="POST" class="card- card-body h5" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <button class="btn btn-primary mt-3 btn-lg">Actualizar</button>
+        <button id="botonact" class="btn btn-primary btn-lg">Actualizar</button>
     </form>
 
     <form action="{% url 'delete_card' card.id %}" method="POST" class="card- card-body h5 pb-4" enctype="multipart/form-data">

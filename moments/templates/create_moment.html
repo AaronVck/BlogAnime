@@ -7,7 +7,7 @@
             <h1 style="color: white;">Crear Momento</h1>
 
 {{error}}
-<div class="form-group rounded" style="background-color: #6c2e55; color: white;">
+<div class="form-group mb-3 rounded form-check form-check-inline" style="background-color: #6c2e55; color: white;">
 <form action="/moments/create/" method="POST" class="card- card-body h5" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
