@@ -21,43 +21,44 @@ def delete_card(request, card_id):
 def moments_by_serie(request, serie):
     card = Card.objects.filter(serie=serie)
     template_name = f'moments/{serie}_moments.html'
-    return render(request, template_name, {'card': card})
+    first_moment = card.first()
+    return render(request, template_name, {'card': card, 'serie':serie})
 
 def rezero_moments(request):
-    return moments_by_serie(request, 'rezero')
+    return moments_by_serie(request, 'ReZero')
 
 def yofukashi_moments(request):
-    return moments_by_serie(request, 'yofukashi')
+    return moments_by_serie(request, 'Yofukashi No Uta')
 
 def kimetsu_moments(request):
-    return moments_by_serie(request, 'kimetsu')
+    return moments_by_serie(request, 'Kimetsu No Yaiba')
 
 def bocchi_moments(request):
-    return moments_by_serie(request, 'bocchi')
+    return moments_by_serie(request, 'Bocchi The Rock!')
 
 def shingeki_moments(request):
-    return moments_by_serie(request, 'shingeki')
+    return moments_by_serie(request, 'Shingeki No Kyojin')
 
 def boku_moments(request):
-    return moments_by_serie(request, 'boku')
+    return moments_by_serie(request, 'Boku No Hero')
 
 def kumo_moments(request):
-    return moments_by_serie(request, 'kumo')
+    return moments_by_serie(request, 'Kumo Desu Ga Nani Ka')
 
 def oshi_moments(request):
-    return moments_by_serie(request, 'oshi')
+    return moments_by_serie(request, 'Oshi No Ko')
 
 def kaguya_moments(request):
-    return moments_by_serie(request, 'kaguya')
+    return moments_by_serie(request, 'Kaguya-sama')
 
 def fullmetal_moments(request):
-    return moments_by_serie(request, 'fullmetal')
+    return moments_by_serie(request, 'Full Metal Alchemist')
 
 def pokemon_moments(request):
-    return moments_by_serie(request, 'pokemon')
+    return moments_by_serie(request, 'Pokemon')
 
 def jujutsu_moments(request):
-    return moments_by_serie(request, 'jujutsu')
+    return moments_by_serie(request, 'Jujutsu Kaisen')
 
 
 

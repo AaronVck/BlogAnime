@@ -31,19 +31,12 @@
               ul li:hover {
                   color: rgb(255, 0, 255); /* Cambia el color del texto al pasar el mouse */
               }
-              .header{
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1000;
-              }
       </style>
       
     <title>Escenas</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,16 +51,20 @@
             <li class="nav-item">
               <a class="nav-link" href="/moments/create">Crear momento</a>
             </li>
-
+          
+            
           </ul>
         </div>
       </nav>
 
       <main class="container mb-5 text-center center-screen container-fluid d-flex justify-content-center align-items-center vh-100" style="color: white;">
+        {% if serie %}
         <h1>Momentos De {{serie}}</h1>
-
+        {% endif %}
         </main>
-
+        
+    
+          
           <div class="container pb-3">
             <div class="row justify-content-center">
                 <div class="col-md-9">
@@ -104,38 +101,6 @@
             </div>
           </div>
 
-          <div class="container text-center" id="">
-            <ul class="list-unstyled">
-  
-          
-              {% if cardnovela and cardmanga and cardanime %}
-              <li class="d-inline pr-3">
-                <a class="h4 text-primary" href="?section=manga">Manga</a></li>
-                <li class="d-inline pr-3">
-                  <a class="h4 text-primary" href="?section=novela">Novela</a></li>
-                  <li class="d-inline pr-3">
-                    <a class="h4 text-primary" href="?section=anime">Anime</a></li>
-                    <li class="d-inline">
-                      <a class="h4 text-primary" href="/{{nombre}}/">General</a></li>
-              
-          {% elif cardanime and cardnovela %}
-          <li class="d-inline pr-3">
-            <a class="h4 text-primary" href="?section=anime">Anime</a></li>
-            <li class="d-inline pr-3">
-              <a class="h4 text-primary" href="?section=novela">Novela</a></li>
-              <li class="d-inline">
-                <a class="h4 text-primary" href="/{{nombre}}/">General</a></li>
-
-          {% elif cardmanga and cardanime %}
-          <li class="d-inline pr-3">
-            <a class="h4 text-primary" href="?section=manga">Manga</a></li>
-            <li class="d-inline pr-3">
-              <a class="h4 text-primary" href="?section=anime">Anime</a></li>
-              <li class="d-inline">
-                <a class="h4 text-primary" href="/{{nombre}}/">General</a></li>
-          {% endif %}
-      </ul>
-      </div>
       {% block content %}
 
 

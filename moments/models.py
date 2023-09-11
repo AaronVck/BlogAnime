@@ -3,18 +3,18 @@ from django.db import models
 # Create your models here.
 
 CHOICES = (
-    ('rezero','Re:Zero'),
-    ('yofukashi','Yofukashi No Uta'),
-    ('kimetsu','Kimetsu No Yaiba'),
-    ('bocchi','Bocchi The Rock!'),
-    ('shingeki','Shingeki No Kyojin'),
-    ('boku','Boku No Hero'),
-    ('kumo','Kumo Desu Ga Nani Ka?'),
-    ('oshi','Oshi No Ko'),
-    ('kaguya','Kaguya-sama'),
-    ('fullmetal','Full Metal Alchemist'),
-    ('pokemon','Pokemon'),
-    ('jujutsu','Jujutsu Kaisen'),
+    ('ReZero','Re:Zero'),
+    ('Yofukashi No Uta','Yofukashi No Uta'),
+    ('Kimetsu No Yaiba','Kimetsu No Yaiba'),
+    ('Bocchi The Rock!','Bocchi The Rock!'),
+    ('Shingeki No Kyojin','Shingeki No Kyojin'),
+    ('Boku No Hero','Boku No Hero'),
+    ('Kumo Desu Ga Nani Ka?','Kumo Desu Ga Nani Ka?'),
+    ('Oshi No Ko','Oshi No Ko'),
+    ('Kaguya-sama','Kaguya-sama'),
+    ('Full Metal Alchemist','Full Metal Alchemist'),
+    ('Pokemon','Pokemon'),
+    ('Jujutsu Kaisen','Jujutsu Kaisen'),
 
 
 )
