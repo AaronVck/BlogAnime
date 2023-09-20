@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 CHOICES = (
     ('ReZero','Re:Zero'),
@@ -9,7 +8,7 @@ CHOICES = (
     ('Bocchi The Rock!','Bocchi The Rock!'),
     ('Shingeki No Kyojin','Shingeki No Kyojin'),
     ('Boku No Hero','Boku No Hero'),
-    ('Kumo Desu Ga Nani Ka?','Kumo Desu Ga Nani Ka?'),
+    ('Kumo Desu Ga Nani Ka','Kumo Desu Ga Nani Ka'),
     ('Oshi No Ko','Oshi No Ko'),
     ('Kaguya-sama','Kaguya-sama'),
     ('Full Metal Alchemist','Full Metal Alchemist'),

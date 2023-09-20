@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CardForm
 from .models import Card
+from django.db.models import Q
 
 def home(request):
     return render(request, 'home.html')
@@ -18,47 +19,52 @@ def delete_card(request, card_id):
         card.delete()
         return redirect('moments')
 
-def moments_by_serie(request, serie):
+def moments_by_serie(request, serie, nombre):
     card = Card.objects.filter(serie=serie)
     template_name = f'moments/{serie}_moments.html'
     first_moment = card.first()
-    return render(request, template_name, {'card': card, 'serie':serie})
+    cardnovela = Card.objects.filter(Q(serie=serie)& (Q(formato='Novela')))
+    cardanime = Card.objects.filter(Q(serie=serie)& (Q(formato='Anime')))
+    cardmanga = Card.objects.filter(Q(serie=serie)& (Q(formato='Manga')))
+    #cardformat = Card.objects.filter(Q(serie=serie) & (Q(formato='Anime') | Q(formato='Manga') | Q(formato='Novela')))  # Aquí estamos usando "OR" para combinar condiciones
+
+    return render(request, template_name, {'card': card, 'serie':serie,'cardnovela':cardnovela, 'cardmanga':cardmanga, 'cardanime':cardanime, 'nombre':nombre})
 
 def rezero_moments(request):
-    return moments_by_serie(request, 'ReZero')
+    return moments_by_serie(request, 'ReZero','rezero')
 
 def yofukashi_moments(request):
-    return moments_by_serie(request, 'Yofukashi No Uta')
+    return moments_by_serie(request, 'Yofukashi No Uta','yofukashi')
 
 def kimetsu_moments(request):
-    return moments_by_serie(request, 'Kimetsu No Yaiba')
+    return moments_by_serie(request, 'Kimetsu No Yaiba','kimetsu')
 
 def bocchi_moments(request):
-    return moments_by_serie(request, 'Bocchi The Rock!')
+    return moments_by_serie(request, 'Bocchi The Rock!','bocchi')
 
 def shingeki_moments(request):
-    return moments_by_serie(request, 'Shingeki No Kyojin')
+    return moments_by_serie(request, 'Shingeki No Kyojin','shingeki')
 
 def boku_moments(request):
-    return moments_by_serie(request, 'Boku No Hero')
+    return moments_by_serie(request, 'Boku No Hero','boku')
 
 def kumo_moments(request):
-    return moments_by_serie(request, 'Kumo Desu Ga Nani Ka')
+    return moments_by_serie(request, 'Kumo Desu Ga Nani Ka','kumo')
 
 def oshi_moments(request):
-    return moments_by_serie(request, 'Oshi No Ko')
+    return moments_by_serie(request, 'Oshi No Ko','oshi')
 
 def kaguya_moments(request):
-    return moments_by_serie(request, 'Kaguya-sama')
+    return moments_by_serie(request, 'Kaguya-sama','kaguya')
 
 def fullmetal_moments(request):
-    return moments_by_serie(request, 'Full Metal Alchemist')
+    return moments_by_serie(request, 'Full Metal Alchemist','fullmetal')
 
 def pokemon_moments(request):
-    return moments_by_serie(request, 'Pokemon')
+    return moments_by_serie(request, 'Pokemon','pokemon')
 
 def jujutsu_moments(request):
-    return moments_by_serie(request, 'Jujutsu Kaisen')
+    return moments_by_serie(request, 'Jujutsu Kaisen','jujutsu')
 
 
 
